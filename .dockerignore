@@ -1,0 +1,31 @@
+# Don't send these to Docker daemon — speeds up image build
+.git
+.gitignore
+README.md
+
+# Local env files (secrets will be set as Railway variables)
+.env
+.env.local
+.env.production
+Backend/.env
+Backend/.env.local
+Frontend/.env
+Frontend/.env.local
+
+# Dev tools
+.vscode/
+.idea/
+*.log
+
+# Local build output (we build fresh inside Docker)
+Frontend/dist/
+Backend/dist/
+
+# Node modules (installed fresh in Docker)
+node_modules/
+Backend/node_modules/
+Frontend/node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
