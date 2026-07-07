@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 234 55% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 345 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 70% 40%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 234 55% 58%;
+    --radius: 0.75rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 40%;
+    --sidebar-primary: 234 55% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 94%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-border: 0 0% 92%;
+    --sidebar-ring: 234 55% 58%;
+    --severity-critical: 345 72% 51%;
+    --severity-high: 25 95% 53%;
+    --severity-medium: 38 92% 50%;
+    --severity-low: 142 70% 40%;
+  }
+
+  .dark {
+    --background: 240 6% 6%;
+    --foreground: 0 0% 90%;
+    --card: 240 5% 9%;
+    --card-foreground: 0 0% 90%;
+    --popover: 240 5% 9%;
+    --popover-foreground: 0 0% 90%;
+    --primary: 234 55% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 4% 14%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 240 4% 14%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 240 4% 14%;
+    --accent-foreground: 0 0% 90%;
+    --destructive: 345 90% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 145 100% 50%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 100% 55%;
+    --warning-foreground: 0 0% 100%;
+    --info: 199 100% 55%;
+    --info-foreground: 0 0% 100%;
+    --border: 240 4% 22%;
+    --input: 240 4% 22%;
+    --ring: 234 55% 60%;
+    --sidebar-background: 240 6% 5%;
+    --sidebar-foreground: 0 0% 55%;
+    --sidebar-primary: 234 55% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 5% 10%;
+    --sidebar-accent-foreground: 0 0% 85%;
+    --sidebar-border: 240 4% 22%;
+    --sidebar-ring: 234 55% 60%;
+    --severity-critical: 345 90% 60%;
+    --severity-high: 25 100% 58%;
+    --severity-medium: 38 100% 55%;
+    --severity-low: 145 100% 50%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { background-color: hsl(240 6% 4%); }
+  html.dark { background-color: hsl(240 6% 4%); }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-card/40 backdrop-blur-xl border border-border/60;
+  }
+  .glass-strong {
+    @apply bg-card/70 backdrop-blur-2xl border border-border/60;
+  }
+  .glass-hover {
+    @apply transition-all duration-300 hover:bg-card/60 hover:border-primary/40 hover:-translate-y-0.5;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--info)), hsl(var(--destructive)));
+  }
+  .bg-gradient-brand {
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--info)));
+  }
+  .bg-gradient-neon {
+    background-image: linear-gradient(135deg, hsl(var(--primary)/0.95), hsl(var(--info)/0.95), hsl(var(--destructive)/0.95));
+  }
+  .ring-glow {
+    box-shadow: 0 0 0 1px hsl(var(--primary)/0.4), 0 10px 40px -10px hsl(var(--primary)/0.5);
+  }
+  .neon-grid {
+    background-image:
+      radial-gradient(60% 60% at 15% 10%, hsl(var(--primary)/0.18), transparent 60%),
+      radial-gradient(50% 50% at 85% 20%, hsl(var(--info)/0.18), transparent 60%),
+      radial-gradient(50% 50% at 50% 100%, hsl(var(--destructive)/0.12), transparent 60%);
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium glass;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; }
+}
